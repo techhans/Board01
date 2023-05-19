@@ -63,7 +63,7 @@ public class BoardController {
             return "board3";
         }
     }
-
+ 
     @GetMapping("/read")
     public String read(Integer bno, Integer replyCnt, SearchCondition sc, RedirectAttributes rattr, Model m) {
         try {
