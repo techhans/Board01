@@ -65,17 +65,18 @@ public class BoardController {
     }
 
     @GetMapping("/read")
-    public String read(Integer bno, SearchCondition sc, RedirectAttributes rattr, Model m) {
+    public String read(Integer bno, Integer replyCnt, SearchCondition sc, RedirectAttributes rattr, Model m) {
         try {
             BoardDto boardDto = boardService.read(bno);
             m.addAttribute(boardDto);
+            m.addAttribute("replyCnt", replyCnt);
         } catch (Exception e) {
             e.printStackTrace();
             rattr.addFlashAttribute("msg", "READ_ERR");
             return "redirect:/board/list"+sc.getQueryString();
         }
 
-        return "board3";
+        return "board4";
     }
 
     @PostMapping("/remove")
@@ -127,4 +128,14 @@ public class BoardController {
         // 2. 세션에 id가 있는지 확인, 있으면 true를 반환
         return session!=null && session.getAttribute("id")!=null;
     }
+    
+    @GetMapping("/test")
+    public String test(Model m) {
+        m.addAttribute("mode", "new");
+
+        return "test3";
+    }
+
+    
+    
 }

@@ -9,6 +9,8 @@ CREATE TABLE `tb_user_info` (
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
+
+
 CREATE TABLE `tb_board` (
 `bno` int(11) NOT NULL AUTO_INCREMENT,
 `title` varchar(45) NOT NULL,
@@ -20,6 +22,8 @@ CREATE TABLE `tb_board` (
 `up_date` datetime DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY (`bno`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
 
 CREATE TABLE `tb_comment` (
 `cno` int(11) NOT NULL AUTO_INCREMENT,
