@@ -75,7 +75,7 @@ public class BoardController {
             rattr.addFlashAttribute("msg", "READ_ERR");
             return "redirect:/board/list"+sc.getQueryString();
         }
-
+ 
         return "board4";
     }
 
