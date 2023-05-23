@@ -827,7 +827,7 @@ textarea {
 		        //$("#modify-writebox").html(""); // clear html 
 			     // $("#modalWin textarea").val(''); 
 		         // $("textarea[name=comment-area3]").val('');
-		        alert('답글 등록하기');
+//		        alert('답글 등록하기');
                 //$("#modalWin textarea").text('');
 			    //$("#modalWin textarea").val(''); 
 			    
