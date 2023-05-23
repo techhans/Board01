@@ -133,7 +133,7 @@ public class BoardController {
     public String test(Model m) {
         m.addAttribute("mode", "new");
 
-        return "test3";
+        return "test2";
     }
 
     

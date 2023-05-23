@@ -141,8 +141,8 @@ li {
 }
 
 .comment-area4 {
-    padding : 0 0 0 60px;
-    background-color: #f9f9fa;
+    padding : 0 0 0 70px;
+//    background-color: #f9f9fa;
 
 }
 
@@ -230,6 +230,11 @@ textarea {
 
 #btn-cancel-modify { 
     margin-right : 10px;
+}
+
+#btn-write-add { 
+    color : #009f47;
+    background-color: #e0f8eb;
 }
 
 #reply-writebox {
@@ -398,6 +403,26 @@ textarea {
         </div>
     </div>
     
+    <div id="modalWin2" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>
+            <h2> | 답글 입력</h2>
+            <div id="modify-writebox">
+                <div class="commenter commenter-writebox"></div>
+                <div class="modify-writebox-content">
+                    <textarea name="comment-area4" id="comment-area4" cols="30" rows="5" placeholder="답글을 남겨보세요"></textarea>
+                </div>
+                <div id="modify-writebox-bottom">
+                    <div class="register-box">
+                        <a href="#" class="btn" id="btn-write-add">등록</a>
+                    </div>
+                </div>
+            </div>
+            </p>
+        </div>
+    </div>
     
     
     <!-- comment3.jsp end -->
@@ -569,8 +594,8 @@ textarea {
                 let cno = $(this).closest(".comment-area-org").attr("data-cno");
                 let bno = $(this).closest(".comment-area-org").attr("data-bno");
 
-                alert(cno);
-                alert(bno);
+//                alert(cno);
+//                alert(bno);
                 
                 $.ajax({
                   type: 'DELETE',  //요청 메서드
@@ -601,7 +626,7 @@ textarea {
 		        //$("#modify-writebox").html(""); // clear html 
 			     // $("#modalWin textarea").val(''); 
 		         // $("textarea[name=comment-area3]").val('');
-		        alert('댓글수정하기1');
+//		        alert('댓글수정하기1');
                 //$("#modalWin textarea").text('');
 			    //$("#modalWin textarea").val(''); 
 			     
@@ -609,9 +634,9 @@ textarea {
 	            let cno2 = $(this).closest(".comment-area-org").attr("data-cno");
 	            let bno2 = $(this).closest(".comment-area-org").attr("data-bno");
 	            let pcno2 = $(this).closest(".comment-area-org").attr("data-pcno");
-			    alert(cno2);
-			    alert(bno2); 
-			    alert(pcno2); 
+//			    alert(cno2);
+//			    alert(bno2); 
+//			    alert(pcno2); 
 /*			      
             	let target = e.target;
                 let cno = target.getAttribute("data-cno");
@@ -619,12 +644,12 @@ textarea {
                 let pcno = target.getAttribute("data-pcno");
 */                
                 let li = $("div[data-cno="+cno2+"]");
-			    alert(li);  
+//			    alert(li);  
                 let commenter = $(".commenter", li).first().text();
                 let comment = $(".comment-content", li).first().text();
 
-			    alert(commenter);
-			    alert(comment);              
+//			    alert(commenter);
+//			    alert(comment);              
                 
 //                $("#modalWin .commenter").text(commenter);
 //                $("#modalWin textarea").text(comment);
@@ -648,7 +673,7 @@ textarea {
 			    e.preventDefault();  
 
 				
-			  alert("btn-write-modify clicked");
+			  //alert("btn-write-modify clicked");
 		
 		      
 		      let comment = $("textarea[name=comment-area3]").val();
@@ -659,14 +684,14 @@ textarea {
 		      let commenter = $("#modalWin .commenter").text();
 		      //let commenter2 = $("#modalWin textarea").text();
 		      let comment2 = $("#modalWin textarea").val();
-		      
+		/*      
 		      alert(comment);
 		      alert(cno);
 		      alert(bno);
 		      alert(pcno);
 		      alert(commenter);
 		      alert(comment2);	
-	
+	*/
 		      if (comment.trim() == '') {
 		        alert("댓글을 입력해주세요.");
 		        $("textarea[name=comment-area3]").focus()
@@ -791,13 +816,124 @@ textarea {
 		
 		
 		//========================================================================================================  
-              
+		//========================================================================================================  
+		// 대댓글 등록하기 (모달팝업 버전)
+//		    $("#commentList2").on("click", ".modBtn", function () {  // commentList클래스의 delBtn에 click이벤트를 넣어줌
+	
+		    $("#commentList2").on("click", ".replyBtn", function (e) {  // commentList2 클래스의 btn-modify에 click이벤트를 넣어줌	
+                //alert('수정팝업');
+		        //$(".modal").html(""); // clear html 
+		        //$(".modal-content").html(""); // clear html 
+		        //$("#modify-writebox").html(""); // clear html 
+			     // $("#modalWin textarea").val(''); 
+		         // $("textarea[name=comment-area3]").val('');
+		        alert('답글 등록하기');
+                //$("#modalWin textarea").text('');
+			    //$("#modalWin textarea").val(''); 
+			    
+			    e.preventDefault();   
+			    
+			    
+			    
+			    
+	            let cno2 = $(this).closest(".comment-area-org").attr("data-cno");
+	            let bno2 = $(this).closest(".comment-area-org").attr("data-bno");
+	            let pcno2 = $(this).closest(".comment-area-org").attr("data-pcno");
+//			    alert(cno2);
+//			    alert(bno2); 
+//			    alert(pcno2); 
+/*			      
+            	let target = e.target;
+                let cno = target.getAttribute("data-cno");
+                let bno = target.getAttribute("data-bno");
+                let pcno = target.getAttribute("data-pcno");
+*/                
+                let li = $("div[data-cno="+cno2+"]");
+//			    alert(li);  
+                let commenter = $(".commenter", li).first().text();
+//                let comment = $(".comment-content", li).first().text();
+
+//			    alert(commenter);
+//			    alert(comment);              
+                //$("textarea[name=comment-area4]").val();
+                /*
+                let comment = $("#modalWin2 textarea").val();
+                
+                comment = '';
+			    alert(comment);
+			    */
+			    let comment = '';
+//                $("#modalWin .commenter").text(commenter);
+//                $("#modalWin textarea").text(comment);
+				$("#modalWin2 .commenter").val(commenter);
+				$("#modalWin2 textarea").val(comment);
+//				$("textarea[name=comment-area4]").val(comment);
+				
+                $("#btn-write-modify").attr("data-cno", cno2);
+                $("#btn-write-modify").attr("data-pcno", pcno2);
+                $("#btn-write-modify").attr("data-bno", bno2);
+
+                // 팝업창을 열고 내용을 보여준다.
+                $("#modalWin2").css("display","block");
+                
+
+            });
+		
+	
+	
+	
+			$("#btn-write-add").click(function (e) {
+			    e.preventDefault();  
+
+				
+//			  alert("btn-write-modify clicked");
+		
+		      
+		      let comment = $("textarea[name=comment-area4]").val();
+		      let cno = $("#btn-write-modify").attr("data-cno");
+		      let bno = $("#btn-write-modify").attr("data-bno");
+		      let pcno = $("#btn-write-modify").attr("data-pcno");
+		      
+		      let commenter = $("#modalWin2 .commenter").text();
+		      //let commenter2 = $("#modalWin textarea").text();
+//		      let comment2 = $("#modalWin2 textarea").val();
+		 /*     
+		      alert(comment);
+		      alert(cno);
+		      alert(bno);
+		      alert(pcno);
+		      alert(commenter);
+		      */
+//		      alert(comment2);	
+	
+		      if (comment.trim() == '') {
+		        alert("댓글을 입력해주세요.");
+		        $("textarea[name=comment-area4]").focus()
+		        //return;
+		      }
+		        $.ajax({
+		            type: 'POST',       // 요청 메서드
+		            url: '/my/comments?bno=' + bno,  // 요청 URI.    ex. comments?bno=1000
+		            headers: {"content-type": "application/json"}, // 요청 헤더
+		            data: JSON.stringify({pcno:pcno ,bno: bno, comment: comment}),  // 서버로 전송할 데이터. stringify()로 직렬화 필요.
+		            success: function (result) {
+		              alert(result);
+		              showList(bno);
+		            },
+		            error: function () {alert("error")
+		            } // 에러가 발생했을 때, 호출될 함수
+		          }); // $.ajax()
+
+			      e.preventDefault();    
+			      
+
+		    })    
               
           //========================================================================================================
         	
         	    // 대댓글 버튼
 		    // $(".delBTN").click(function(){  // 이렇게 걸면안됨. 비동기에 들어있는 버튼이라, 클릭이벤트 발생불가.
-		    $("#commentList2").on("click", ".replyBtn", function (e) {  // commentList2 클래스의 delBtn에 click이벤트를 넣어줌
+		    $("#commentList2").on("click", ".replyBtn2", function (e) {  // commentList2 클래스의 delBtn에 click이벤트를 넣어줌
 		      // 1. 답글을 입력할 replyForm폼을 이동
 		      $("#reply-writebox").appendTo($(this).parent());
 		      //  $("#replyForm").appendTo($(this).parent());
@@ -826,12 +962,12 @@ textarea {
                     $("textarea[name=comment-area2]").focus();
                     return;
                 } 
-		        
+		        /*
 		        alert(comment);
 		        alert(cno);
 		        alert(bno);
 		        alert(pcno);
-		        
+		        */
 		        
 		        $.ajax({
 		            type: 'POST',       // 요청 메서드
@@ -868,14 +1004,14 @@ textarea {
                // let pcno2 = $("#reply-writebox").parent(".comment-item2").attr("data-pcno");         
                 //let bno = $("#reply-writebox").parent(".comment-item2").attr("data-bno");
                 
-                
+                /*
                 alert(comment);
                 //alert(cno);
                 alert(pcno);
               //  alert(cno2);
               //  alert(pcno2);          
                 //alert(bno);
-                
+                */
                 if (comment.trim() == '') {
                   alert("답글을 입력해주세요.");
                   $("textarea[name=comment-area2]").focus();
@@ -885,13 +1021,13 @@ textarea {
                 
         		let target = e.target;
 
-                alert(target);        		
+//                alert(target);        		
         		
                 let cno = target.getAttribute("data-cno")
                 let bno = target.getAttribute("data-bno")
 
-                alert(cno);
-                alert(bno);
+//                alert(cno);
+//                alert(bno);
                 
                 
                 let repForm = $("#reply-writebox");
@@ -919,12 +1055,22 @@ textarea {
                 // 2. 모달 창을 닫는다. 
                 $(".close").trigger("click");
             });
+            
+            $("#btn-write-add").click(function(){
+                // 1. 변경된 내용을 서버로 전송
+                // 2. 모달 창을 닫는다. 
+                $(".close").trigger("click");
+            });
+            
 
             $(".close").click(function(){
                 $("#modalWin").css("display","none");
             });
     
-    
+            $(".close").click(function(){
+                $("#modalWin2").css("display","none");
+            });
+            
             //========================================================================================================
 
             // 결과값을 배열로 받아서 forEach를통하여 <li> 태그 사용하여 출력에 필요한 함수
