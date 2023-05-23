@@ -907,9 +907,9 @@ textarea {
 //		      alert(comment2);	
 	
 		      if (comment.trim() == '') {
-		        alert("댓글을 입력해주세요.");
+		        alert("답글을 입력해주세요.");
 		        $("textarea[name=comment-area4]").focus()
-		        //return;
+		        return;
 		      }
 		        $.ajax({
 		            type: 'POST',       // 요청 메서드
